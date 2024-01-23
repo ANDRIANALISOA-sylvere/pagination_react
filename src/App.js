@@ -7,7 +7,6 @@ import {HiArrowRightCircle,HiArrowLeftCircle,HiArrowRight,HiArrowLeft} from "rea
 function App() {
   const [index,setIndex]=useState(0);
   const [showmore,setShowmore]=useState(false);
-  const taille=sculptureList.length;
   function handleNextClick()
   {
     if(index + 1===sculptureList.length)
@@ -35,13 +34,7 @@ function App() {
   let sculpture=sculptureList[index];
   return (
     <div className="container mt-5 col-md-5">
-      <button className="btn btn-outline-primary btn-sm m-1" onClick={handlePrevClick}>
-        <HiArrowLeftCircle style={{height:'30px'}}></HiArrowLeftCircle> Précedent
-      </button>
-      <button className="btn btn-outline-primary btn-sm" onClick={handleNextClick}>
-        Suivant <HiArrowRightCircle style={{height:'30px'}}></HiArrowRightCircle>
-      </button>
-      <div className="mt-3 border p-2 bg-dark mb-5 rounded">
+      <div className="mt-3 border p-2 bg-dark mb-2 rounded">
         <div className="bg-success p-3 text-white">
           <h2>
             <i>{sculpture.name}</i> par {sculpture.artist}
@@ -66,6 +59,14 @@ function App() {
               className="rounded"
           />
         </div>
+      </div>
+      <div style={{float:'right'}} className="mb-2">
+        <button className="btn btn-outline-primary btn-sm m-1" onClick={handlePrevClick}>
+          <HiArrowLeftCircle style={{height:'30px'}}></HiArrowLeftCircle> Précedent
+        </button>
+        <button className="btn btn-outline-primary btn-sm" onClick={handleNextClick}>
+          Suivant <HiArrowRightCircle style={{height:'30px'}}></HiArrowRightCircle>
+        </button>
       </div>
     </div>
   );
